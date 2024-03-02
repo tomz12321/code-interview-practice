@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test #1-2 - sortByType() | Tomzyang</title>
+  </head>
+
+  <body>
+    <p>Test #1-2 - sortByType() | Tomzyang:</p>
+
+    <p>Dummy Test Data:</p>
+    <p id="demo1"></p>
+    <p>Answer:</p>
+    <p id="demo2"></p>
+
+    <script>
+      const users = [
+        {
+          firstName: 'Tom',
+          lastName: 'Yang',
+          customerID: '1',
+          note: 'xxx',
+          profession: 'student'
+        },
+        {
+          firstName: 'Ann',
+          lastName: 'xxx',
+          customerID: '2',
+          note: 'xxx',
+          profession: 'freelancer'
+        },
+        {
+          firstName: 'Ben',
+          lastName: '',
+          customerID: '3',
+          note: 'xxx',
+          profession: 'productOwner'
+        },
+        {
+          firstName: 'Candice',
+          lastName: 'xxx',
+          customerID: '4',
+          note: 'xxx',
+          profession: 'engineer'
+        },
+        {
+          firstName: 'Debby',
+          lastName: '',
+          customerID: '5',
+          note: 'xxx',
+          profession: 'systemAnalytics'
+        },
+        {
+          firstName: 'Emma',
+          lastName: '',
+          customerID: '6',
+          note: 'xxx',
+          profession: 'systemAnalytics'
+        },
+        {
+          firstName: 'Frank',
+          lastName: '',
+          customerID: '7',
+          note: 'xxx',
+          profession: 'student'
+        }
+      ];
+
+      document.getElementById('demo1').innerHTML = JSON.stringify(users);
+
+      function sortByType(users) {
+        let combineArraytoStringForAnswer = [];
+
+        let answerNewSA = users.filter((e) =>
+          e.profession.includes('systemAnalytics')
+        );
+        let answerNewEng = users.filter((e) =>
+          e.profession.includes('engineer')
+        );
+        let answerNewPO = users.filter((e) =>
+          e.profession.includes('productOwner')
+        );
+        let answerNewFL = users.filter((e) =>
+          e.profession.includes('freelancer')
+        );
+        let answerNewST = users.filter((e) => e.profession.includes('student'));
+
+        answerNewSA.forEach((element) => {
+          combineArraytoStringForAnswer.push(element);
+        });
+
+        answerNewEng.forEach((element) => {
+          combineArraytoStringForAnswer.push(element);
+        });
+
+        answerNewPO.forEach((element) => {
+          combineArraytoStringForAnswer.push(element);
+        });
+
+        answerNewFL.forEach((element) => {
+          combineArraytoStringForAnswer.push(element);
+        });
+
+        answerNewST.forEach((element) => {
+          combineArraytoStringForAnswer.push(element);
+        });
+
+        return JSON.stringify(combineArraytoStringForAnswer);
+      }
+
+      let result = sortByType(users);
+
+      document.getElementById('demo2').innerHTML = result;
+    </script>
+  </body>
+</html>

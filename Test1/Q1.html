@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test #1-1 - sortUserName() | Tomzyang</title>
+  </head>
+
+  <body>
+    <p>Test #1-1 - sortUserName() | Tomzyang:</p>
+
+    <p>Dummy Test Data:</p>
+    <p id="demo1"></p>
+    <p> Answer:</p>
+    <p id="demo2"></p>
+
+    <script>
+      const users = [
+        {
+          firstName: 'Tom',
+          lastName: 'Yang',
+          customerID: '1',
+          note: 'xxx',
+          profession: 'student'
+        },
+        {
+          firstName: 'Ann',
+          lastName: 'xxx',
+          customerID: '2',
+          note: 'xxx',
+          profession: 'freelancer'
+        },
+        {
+          firstName: 'Ben',
+          lastName: '',
+          customerID: '3',
+          note: 'xxx',
+          profession: 'productOwner'
+        },
+        {
+          firstName: 'Candice',
+          lastName: 'xxx',
+          customerID: '4',
+          note: 'xxx',
+          profession: 'engineer'
+        },
+        {
+          firstName: 'Debby',
+          lastName: '',
+          customerID: '5',
+          note: 'xxx',
+          profession: 'systemAnalytics'
+        }
+      ];
+
+      document.getElementById('demo1').innerHTML = JSON.stringify(users);
+
+      function sortUserName(users) {
+        let combineArraytoStringForAnswer = [];
+
+        users = users.sort(
+          (a, b) =>
+            a.firstName.localeCompare(b.firstName) ||
+            a.lastName.localeCompare(b.lastName) ||
+            a.customerID.localeCompare(b.customerID)
+        );
+
+        combineArraytoStringForAnswer = users;
+
+        return JSON.stringify(combineArraytoStringForAnswer);
+      }
+
+      let result = sortUserName(users);
+
+      document.getElementById('demo2').innerHTML = result;
+    </script>
+  </body>
+</html>
